@@ -1,0 +1,387 @@
+/* ------------------------------------------------------------------------- Global Styles ---------------------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    color: #000;
+}
+
+/* Anchor tags styling */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Unordered list styling */
+ul {
+    list-style: none;
+}
+
+/* ------------------------------------------------------------------------- Header Styling ---------------------------------------------------------------------------- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #282845;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+header ul {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ------------------------------------------------------------------------- Footer Styling ---------------------------------------------------------------------------- */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #282845;
+    color: #ffffff;
+}
+
+footer p {
+    width: 70%;
+    margin: 2rem auto;
+    line-height: 1.5;
+}
+
+footer ul {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ------------------------------------------------------------------------- Search Section Styling ---------------------------------------------------------------------------- */
+
+.search {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececf2;
+    padding: 2rem;
+    overflow: hidden; /* Prevents any overflow issues */
+}
+
+.search-component {
+    text-align: center;
+    /* background-color: #fff; */
+    padding: 2rem;
+    /* border-radius: 20px; */
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
+    position: relative; /* Allows positioning of arrows relative to this container */
+}
+
+.search-component h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c2c54;
+    font-weight: 700;
+}
+
+.search-component p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: #6a6a8c;
+    line-height: 1.6;
+}
+
+.search-component form {
+    width: 100%;
+    display: flex;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    overflow: hidden;
+    background-color: #f7f7f9;
+    position: relative; /* Allows positioning of arrows relative to the form */
+}
+
+.search-component form input {
+    padding-left: 2rem;
+    border: none;
+    border-radius: 50px 0 0 50px;
+    width: 80%;
+    height: 60px;
+    font-size: 1rem;
+    outline: none;
+    background-color: transparent;
+    color: #333;
+}
+
+.search-component form input::placeholder {
+    color: #999;
+}
+
+.search-component form button {
+    border: none;
+    border-radius: 0 50px 50px 0;
+    width: 20%;
+    height: 60px;
+    background-color: #2c2c54;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.search-component form button:hover {
+    background-color: #4b4b8c;
+    transform: translateY(-2px);
+}
+
+.search-component form button:active {
+    transform: translateY(0);
+}
+
+/* Ensure the arrows are visible and above other elements */
+.custom-next-arrow, .custom-prev-arrow {
+    z-index: 2; /* Make sure arrows are on top */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c2c54;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-next-arrow:hover, .custom-prev-arrow:hover {
+    background-color: #4b4b8c;
+}
+
+.custom-next-arrow {
+    right: -20px; /* Adjust based on your layout */
+}
+
+.custom-prev-arrow {
+    left: -20px; /* Adjust based on your layout */
+}
+
+/* ------------------------------------------------------------------------- Movie Display Section Styling ---------------------------------------------------------------------------- */
+
+.movieDisplay {
+    padding: 2rem;
+    background-color: #f8f8f8;
+    transition: transform 0.2s ease-in-out;
+}
+
+.movies-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.movies-title header {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #f1f1f3;
+}
+
+.movies-title p {
+    display: flex;
+    gap: 1rem;
+}
+
+.movies-title p span {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: #3a3a6d;
+    border-radius: 5px;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.movies-title p span:hover {
+    background-color: #4b4b8c;
+}
+
+/* ------------------------------------------------------------------------- Slick Slider Custom Styling ---------------------------------------------------------------------------- */
+.slick-slider {
+    position: relative;
+    padding: 0 60px; /* Add padding to make space for the buttons */
+    overflow: hidden;
+}
+
+.slick-list {
+    margin: 0;
+    overflow: hidden; /* Ensure content is properly visible */
+}
+
+.slick-slide {
+    padding: 0 10px;
+}
+
+.slick-prev,
+.slick-next {
+    width: 40px;
+    height: 40px;
+    background-color: #282845;
+    border-radius: 50%;
+    z-index: 9999 !important; /* Ensure they are on top of everything */
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    font-size: 20px;
+    color: white;
+}
+
+.slick-prev {
+    left: 10px; /* Positioning the button inside the slider */
+}
+
+.slick-next {
+    right: 10px; /* Positioning the button inside the slider */
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    background-color: #4b4b8c;
+    opacity: 1;
+}
+
+.custom-next-arrow, .custom-prev-arrow {
+    z-index: 1;
+    display: block !important;
+    background: #000; /* Change this color to make it visible */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.slick-next::before, .slick-prev::before {
+    font-size: 30px; /* Increase size if needed */
+    color: white; /* Change color to make it visible */
+}
+
+
+
+/* ------------------------------------------------------------------------- Movie Card Styling ---------------------------------------------------------------------------- */
+
+#movieWrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movie {
+    width: 100%;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.movie-img {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.movie-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333333;
+}
+
+.info p {
+    font-size: 1rem;
+    color: #777777;
+}
+
+/* ------------------------------------------------------------------------- Responsive Design ---------------------------------------------------------------------------- */
+
+/* Adjust layout for tablet screens */
+@media (max-width: 1024px) {
+    .movie {
+        width: calc(25% - 16px);
+    }
+
+    .search-component {
+        width: 70%;
+    }
+
+    .search-component h1 {
+        font-size: 3rem;
+    }
+
+    .search-component p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Adjust layout for mobile screens */
+@media (max-width: 768px) {
+    .movie {
+        width: calc(33.333% - 16px);
+    }
+
+    .search-component {
+        width: 90%;
+    }
+
+    .search-component h1 {
+        font-size: 2.5rem;
+    }
+
+    .search-component p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .movie {
+        width: calc(50% - 16px);
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 25px;
+        height: 25px;
+    }
+
+    .search-component h1 {
+        font-size: 2rem;
+    }
+}
+
+

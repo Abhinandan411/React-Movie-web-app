@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+const img_base_url = "https://image.tmdb.org/t/p/original/";
 
 function Search() {
 
+  const {topRatedMovies} = useSelector((state)=>{
+    return state.movieReducer;
+  })
+
+  console.log(topRatedMovies);
+  
+
   const [searctTerm, setSearchTerm] = useState("");
+  const [background , setBackground] = useState("");
 
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-     navigate("/search/"+ searctTerm)
+    navigate("/search/" + searctTerm)
   }
 
 

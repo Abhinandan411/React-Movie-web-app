@@ -24,8 +24,12 @@ function SingleMovie() {
         );
         setSingleMovie(response.data);
         console.log(response.data);
+
+        // Set background image of wrapper
+        document.querySelector('.single-movie-wrapper').style.backgroundImage = `url(${img_base_url + response.data.backdrop_path || response.data.poster_path})`;
+
       } catch (err) {
-        console.error("Failed to fetch movies details", err);
+        console.error("Failed to fetch movie details", err);
       }
     };
 
@@ -33,45 +37,49 @@ function SingleMovie() {
   }, [id]);
 
   return (
-    <div className='single-movie-container'>
-      <div className='single-movie-left'>
-        {singleMovie.poster_path && (
-          <img src={img_base_url + singleMovie.poster_path} alt={singleMovie.title || singleMovie.original_title} />
-        )}
-      </div>
-      <div className='single-movie-right'>
-        <h1>{singleMovie.title || singleMovie.original_title}</h1>
-        <p>{singleMovie.overview}</p>
-        <div className='single-movie-details'>
-          <p><strong>Release Date:</strong> {singleMovie.release_date ? formatDate(singleMovie.release_date) : 'N/A'}</p>
-          <p><strong>Rating:</strong> ⭐{singleMovie.vote_average ? Math.floor(singleMovie.vote_average) : 'N/A'} / 10</p>
-        </div>
-        <div className='single-movie-genres'>
-          <p><strong>Type:</strong></p>
-          {singleMovie.genres && singleMovie.genres.length > 0 ? (
-            <ul>
-              {singleMovie.genres.map((item, idx) => (
-                <li key={idx}>{item.name}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>N/A</p>
+    <div className='single-movie-wrapper'>
+      <div className='single-movie-container'>
+        <div className='single-movie-left'>
+          {singleMovie.poster_path && (
+            <img src={img_base_url + singleMovie.poster_path} alt={singleMovie.title || singleMovie.original_title} />
           )}
         </div>
-        <div className='single-movie-languages'>
-          <p><strong>Available In:</strong></p>
-          {singleMovie.spoken_languages && singleMovie.spoken_languages.length > 0 ? (
-            <ul>
-              {singleMovie.spoken_languages.map((language, index) => (
-                <li key={index}>{language.english_name}</li>
-              ))}
-            </ul>
-          ) : (
-            <p>N/A</p>
-          )}
+        <div className='single-movie-right'>
+          <h1>{singleMovie.title || singleMovie.original_title}</h1>
+          <p>{singleMovie.overview}</p>
+          <div className='single-movie-details'>
+            <p><strong style={{color:"#fff"}}>Release Date:</strong> {singleMovie.release_date ? formatDate(singleMovie.release_date) : 'N/A'}</p>
+            <p><strong style={{color:"#fff"}} >Rating:</strong> ⭐{singleMovie.vote_average ? Math.floor(singleMovie.vote_average) : 'N/A'} / 10</p>
+          </div>
+          <div className='single-movie-genres'>
+            <p><strong style={{color:"#fff"}}>Type:</strong></p>
+            {singleMovie.genres && singleMovie.genres.length > 0 ? (
+              <ul>
+                {singleMovie.genres.map((item, idx) => (
+                  <li key={idx}>{item.name}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>N/A</p>
+            )}
+          </div>
+          <div className='single-movie-languages'>
+            <p><strong style={{color:"#fff"}}>Available In:</strong></p>
+            {singleMovie.spoken_languages && singleMovie.spoken_languages.length > 0 ? (
+              <ul>
+                {singleMovie.spoken_languages.map((language, index) => (
+                  <li key={index}>{language.english_name}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>N/A</p>
+            )}
+          </div>
         </div>
       </div>
+
     </div>
+
   );
 }
 

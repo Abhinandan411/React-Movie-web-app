@@ -35,6 +35,10 @@ header ul {
     display: flex;
     gap: 1rem;
 }
+header ul li{
+    color: #fff;
+    font-weight:600 ;
+}
 
 /* ------------------------------------------------------------------------- Footer Styling ---------------------------------------------------------------------------- */
 
@@ -53,11 +57,15 @@ footer p {
     width: 70%;
     margin: 2rem auto;
     line-height: 1.5;
+    color: #bfbdbd;
 }
 
 footer ul {
     display: flex;
     gap: 1rem;
+}
+footer ul li{
+    color: #fff;
 }
 
 /* ------------------------------------------------------------------------- Search Section Styling ---------------------------------------------------------------------------- */
@@ -209,18 +217,36 @@ footer ul {
     background-color: #4b4b8c;
 }
 
-/* single movie  */
-.single-movie-container {
-    display: flex; /* Ensure that the container is a flex container */
-    flex-wrap: nowrap; /* Prevent wrapping, forcing content into a row */
+/*  -------------------------------------------------------------single movie -------------------------------------------------------------  */
+.single-movie-wrapper {
+    position: relative;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .single-movie-container {
+    display: flex;
+    flex-wrap: nowrap;
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
+    margin: 0 auto; /* Center the container within the wrapper */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+  }
+  .single-movie-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Adjust the opacity here */
+    z-index: 1; /* Ensure the overlay is behind the content */
   }
   
   .single-movie-left {
@@ -244,33 +270,31 @@ footer ul {
   .single-movie-right h1 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #333;
+    color: #fff; /* Adjusted to contrast with the dark background */
   }
   
   .single-movie-right p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #555;
+    color: #ddd; /* Adjusted to contrast with the dark background */
     margin-bottom: 10px;
   }
-  
+
   .single-movie-genres ul, .single-movie-languages ul {
     list-style-type: none;
     padding-left: 0;
   }
   
   .single-movie-genres li, .single-movie-languages li {
-    background-color: #ddd;
+    background-color: #444; /* Darker background for better contrast */
     display: inline-block;
     padding: 5px 10px;
     margin-right: 10px;
     margin-bottom: 5px;
     border-radius: 4px;
     font-size: 0.9rem;
-    color: #333;
+    color: #fff;
   }
-  
-
 
 /* ------------------------------------------------------------------------- Slick Slider Custom Styling ---------------------------------------------------------------------------- */
 .slick-slider {
@@ -355,19 +379,18 @@ footer ul {
 .movie {
     width: 100%;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.movie:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    /* transition: transform 0.3s, box-shadow 0.3s; */
 }
 
 .movie-img {
     width: 100%;
     overflow: hidden;
     border-radius: 15px;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+}
+.movie-img:hover{
+    transition: transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 0px 4px 10px rgba(51, 57, 108, 0.461); 
 }
 
 .movie-img img {

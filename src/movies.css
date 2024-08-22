@@ -1,11 +1,12 @@
-/* ------------------------------------------------------------------------- Global Styles ---------------------------------------------------------------------------- */
+/* -------------------------------------------- Global Styles --------------------------------------------------------- */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
-    color: #000;
+    /* color: #000; */
+    color: #fff;
 }
 
 /* Anchor tags styling */
@@ -19,28 +20,33 @@ ul {
     list-style: none;
 }
 
-/* ------------------------------------------------------------------------- Header Styling ---------------------------------------------------------------------------- */
+/* ------------------------------------ Header Styling -------------------------------------------------------- */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #282845;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #ffffff;
+    backdrop-filter: blur(5px);
+    color: black;
+    z-index: 1000;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 header ul {
     display: flex;
     gap: 1rem;
 }
-header ul li{
-    color: #fff;
-    font-weight:600 ;
+
+header ul li {
+    color: #fafafa;
+    font-weight: 600;
 }
 
-/* ------------------------------------------------------------------------- Footer Styling ---------------------------------------------------------------------------- */
+/* ----------------------------------------------- Footer Styling --------------------------------------------------------- */
 
 footer {
     display: flex;
@@ -49,7 +55,7 @@ footer {
     align-items: center;
     text-align: center;
     padding: 2rem 0;
-    background-color: #282845;
+    background-color: #04152d;
     color: #ffffff;
 }
 
@@ -68,9 +74,10 @@ footer ul li{
     color: #fff;
 }
 
-/* ------------------------------------------------------------------------- Search Section Styling ---------------------------------------------------------------------------- */
+/* ------------------------------------------- Search Section Styling --------------------------------------------- */
 
 .search {
+    position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -83,6 +90,7 @@ footer ul li{
 
 .search-component {
     text-align: center;
+    
     /* background-color: #fff; */
     padding: 2rem;
     /* border-radius: 20px; */
@@ -93,14 +101,14 @@ footer ul li{
 .search-component h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
-    color: #2c2c54;
+    color: #fff;
     font-weight: 700;
 }
 
 .search-component p {
     margin-bottom: 2rem;
     font-size: 1.2rem;
-    color: #6a6a8c;
+    color: #bfbaba;
     line-height: 1.6;
 }
 
@@ -135,7 +143,7 @@ footer ul li{
     border-radius: 0 50px 50px 0;
     width: 20%;
     height: 60px;
-    background-color: #2c2c54;
+    background:linear-gradient(98.37deg, #f89e00 .99%, #da2f68);
     color: #ffffff;
     font-size: 1.2rem;
     cursor: pointer;
@@ -143,8 +151,8 @@ footer ul li{
 }
 
 .search-component form button:hover {
-    background-color: #4b4b8c;
-    transform: translateY(-2px);
+    background-color: #04152d;
+    /* transform: translateY(-2px); */
 }
 
 .search-component form button:active {
@@ -159,7 +167,7 @@ footer ul li{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2c2c54;
+    background-color: #04152d;
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
@@ -167,7 +175,7 @@ footer ul li{
 }
 
 .custom-next-arrow:hover, .custom-prev-arrow:hover {
-    background-color: #4b4b8c;
+    background-color: #04152d;
 }
 
 .custom-next-arrow {
@@ -178,12 +186,16 @@ footer ul li{
     left: -20px; /* Adjust based on your layout */
 }
 
-/* ------------------------------------------------------------------------- Movie Display Section Styling ---------------------------------------------------------------------------- */
+/*--------------------------------------------- Movie Display Section Styling-------------------------------------------------------- */
 
 .movieDisplay {
     padding: 2rem;
-    background-color: #f8f8f8;
+    background-color: #04152d;
     transition: transform 0.2s ease-in-out;
+}
+.movie-header{
+    position: relative;
+    z-index: 0;
 }
 
 .movies-title {
@@ -196,7 +208,7 @@ footer ul li{
 .movies-title header {
     font-weight: bold;
     font-size: 1.8rem;
-    color: #f1f1f3;
+    color: #ffffff;
 }
 
 .movies-title p {
@@ -207,14 +219,14 @@ footer ul li{
 .movies-title p span {
     cursor: pointer;
     padding: 0.5rem 1rem;
-    background-color: #3a3a6d;
+    background-color: #04152d;
     border-radius: 5px;
     color: #ffffff;
     transition: background-color 0.3s;
 }
 
 .movies-title p span:hover {
-    background-color: #4b4b8c;
+    background-color: #546e92;
 }
 
 /*  -------------------------------------------------------------single movie -------------------------------------------------------------  */

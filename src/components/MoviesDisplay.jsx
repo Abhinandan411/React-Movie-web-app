@@ -24,7 +24,7 @@ function MoviesDisplay({ heading, option1, option2, choice1, choice2 }) {
         <>
             <section className='movieDisplay'>
                 <div className='movies-title'>
-                    <header>{heading}</header>
+                    <header className='movie-header'>{heading}</header>
                     <p>
                         <span onClick={() => setVisible(true)}>{choice1}</span>
                         <span onClick={() => setVisible(false)}>{choice2}</span>

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { searchMovies } from '../redux-toolkit/slice';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
@@ -40,20 +41,26 @@ function SearchResults() {
 
     return (
         <>
-            <h2 style={{padding:"2rem"}}>{`Search results for ${searchTerm}`}</h2>
+            <h2 style={{ padding: "2rem" }}>{`Search results for ${searchTerm}`}</h2>
+
             <Slider {...sliderSettings}>
                 {searchMoviesData && searchMoviesData.map((movie, idx) => (
-                    <div className='results' key={idx}>
-                        <div className="movie-img">
-                            <img src={img_base_url + movie.poster_path} alt={movie.title || movie.original} />
+                    <Link to={`/singleItem/${movie.id}`}>
+                        <div className='results' key={idx}>
+                            <div className="movie-img">
+                                <img src={img_base_url + movie.poster_path} alt={movie.title || movie.original} />
+                            </div>
+                            <div className="info">
+                                <h3>{movie.title || movie.original || movie.name || movie.original_name}</h3>
+                                <p>
+                                    {movie.release_date ? formatDate(movie.release_date) : formatDate(movie.first_air_date)}
+                                </p>
+                            </div>
                         </div>
-                        <div className="info">
-                            <h3>{movie.title || movie.original || movie.name || movie.original_name}</h3>
-                            <p>
-                                {movie.release_date ? formatDate(movie.release_date) : formatDate(movie.first_air_date)}
-                            </p>
-                        </div>
-                    </div>
+
+                    </Link>
+
+
                 ))}
             </Slider>
         </>
@@ -76,11 +83,11 @@ function SampleNextArrow(props) {
             onClick={onClick}
         />
     );
-  }
-  
+}
 
 
-  function SamplePrevArrow(props) {
+
+function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
         <div
@@ -96,7 +103,7 @@ function SampleNextArrow(props) {
             onClick={onClick}
         />
     );
-  }
-  
+}
+
 
 export default SearchResults;

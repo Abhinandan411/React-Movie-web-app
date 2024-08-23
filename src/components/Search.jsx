@@ -68,7 +68,7 @@ function Search() {
           right: 0,
           bottom: 0,
           background: "linear-gradient(180deg, #04152d00, #04152d 79.17%)",
-          backgroundColor: 'rgba(0, 0, 0, 0.7)', // Adjust opacity as needed
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust opacity as needed
           zIndex: 1,
         }}
       ></div>

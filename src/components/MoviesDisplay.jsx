@@ -10,14 +10,37 @@ function MoviesDisplay({ heading, option1, option2, choice1, choice2 }) {
     // console.log(option1);
     
 
-    var settings = {
+    const settings = {
         dots: false,
         infinite: true,
         speed: 900,
-        slidesToShow: 5,
+        slidesToShow: 6, // Default number of slides to show
         slidesToScroll: 5,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
+        responsive: [
+            {
+                breakpoint: 1024, // Tablet screen
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 3,
+                },
+            },
+            {
+                breakpoint: 768, // Mobile screen
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 2,
+                },
+            },
+            {
+                breakpoint: 480, // Extra small mobile screens
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     return (
@@ -48,39 +71,43 @@ function MoviesDisplay({ heading, option1, option2, choice1, choice2 }) {
 }
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-      <div
-          className={className}
-          style={{
-              ...style,
-              display: "block",
-              background: "gray", // Visible color
-              borderRadius: "50%",
-              right: "10px",
-              zIndex: "9999",
-          }}
-          onClick={onClick}
-      />
-  );
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{
+                ...style,
+                right: '5px',
+                top: '35%',
+                transform: 'translateY(-50%)',
+                display: 'block',
+                background: 'gray', // This is for visibility; use CSS for final styling
+                borderRadius: '50%',
+                zIndex: 9999,
+            }}
+            onClick={onClick}
+        />
+    );
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-      <div
-          className={className}
-          style={{
-              ...style,
-              display: "block",
-              background: "gray", // Visible color
-              borderRadius: "50%",
-              left: "10px",
-              zIndex: "9999",
-          }}
-          onClick={onClick}
-      />
-  );
+    const { className, style, onClick } = props;
+    return (
+        <div
+            className={className}
+            style={{
+                ...style,
+                left: '10px',
+                top: '35%',
+                transform: 'translateY(-50%)',
+                display: 'block',
+                background: 'gray', // This is for visibility; use CSS for final styling
+                borderRadius: '50%',
+                zIndex: 9999,
+            }}
+            onClick={onClick}
+        />
+    );
 }
 
 export default MoviesDisplay;

@@ -55,7 +55,7 @@ footer {
     align-items: center;
     text-align: center;
     padding: 2rem 0;
-    background-color: #04152d;
+    background-color: #020b18;
     color: #ffffff;
 }
 
@@ -85,29 +85,27 @@ footer ul li{
     align-items: center;
     background-color: #ececf2;
     padding: 2rem;
-    overflow: hidden; /* Prevents any overflow issues */
+    overflow: hidden;
 }
 
 .search-component {
     text-align: center;
-    
-    /* background-color: #fff; */
     padding: 2rem;
-    /* border-radius: 20px; */
-    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); */
-    position: relative; /* Allows positioning of arrows relative to this container */
+    position: relative;
+    max-width: 600px; /* Limit the width for larger screens */
+    width: 100%;
 }
 
 .search-component h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 3rem; /* Adjusted font size for better scaling */
+    margin-bottom: 1rem;
     color: #fff;
     font-weight: 700;
 }
 
 .search-component p {
-    margin-bottom: 2rem;
-    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem; /* Adjusted font size for better scaling */
     color: #bfbaba;
     line-height: 1.6;
 }
@@ -119,15 +117,13 @@ footer ul li{
     border-radius: 50px;
     overflow: hidden;
     background-color: #f7f7f9;
-    position: relative; /* Allows positioning of arrows relative to the form */
 }
 
 .search-component form input {
-    padding-left: 2rem;
+    padding: 1rem;
     border: none;
     border-radius: 50px 0 0 50px;
-    width: 80%;
-    height: 60px;
+    flex: 1;
     font-size: 1rem;
     outline: none;
     background-color: transparent;
@@ -141,9 +137,8 @@ footer ul li{
 .search-component form button {
     border: none;
     border-radius: 0 50px 50px 0;
-    width: 20%;
-    height: 60px;
-    background:linear-gradient(98.37deg, #f89e00 .99%, #da2f68);
+    padding: 1rem 2rem;
+    background: linear-gradient(98.37deg, #f89e00 .99%, #da2f68);
     color: #ffffff;
     font-size: 1.2rem;
     cursor: pointer;
@@ -152,48 +147,20 @@ footer ul li{
 
 .search-component form button:hover {
     background-color: #04152d;
-    /* transform: translateY(-2px); */
 }
 
 .search-component form button:active {
     transform: translateY(0);
 }
 
-/* Ensure the arrows are visible and above other elements */
-.custom-next-arrow, .custom-prev-arrow {
-    z-index: 2; /* Make sure arrows are on top */
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #04152d;
-    border-radius: 50%;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.custom-next-arrow:hover, .custom-prev-arrow:hover {
-    background-color: #04152d;
-}
-
-.custom-next-arrow {
-    right: -20px; /* Adjust based on your layout */
-}
-
-.custom-prev-arrow {
-    left: -20px; /* Adjust based on your layout */
-}
-
-/*--------------------------------------------- Movie Display Section Styling-------------------------------------------------------- */
-
+/* --------------------------------------------------------- All Movies ------------------------------------------------------------------ */
 .movieDisplay {
     padding: 2rem;
     background-color: #04152d;
     transition: transform 0.2s ease-in-out;
 }
-.movie-header{
+
+.movie-header {
     position: relative;
     z-index: 0;
 }
@@ -228,77 +195,131 @@ footer ul li{
 .movies-title p span:hover {
     background-color: #546e92;
 }
+/* ---------------------------------------- Movie Card Styling ---------------------------------------------------------- */
+
+
+#movieWrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movie {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-img {
+    width: 90%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.movie-img:hover {
+    box-shadow: 0px 4px 10px rgba(119, 127, 214, 0.461);
+}
+
+.movie-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    text-align: left;
+    margin-top: 0.5rem;
+}
+
+.info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: #f2f2f2;
+}
+
+.info p {
+    font-size: 1rem;
+    color: #c7c6c6;
+}
+
+
 
 /*  -------------------------------------------------------------single movie -------------------------------------------------------------  */
 .single-movie-wrapper {
     position: relative;
     width: 100%;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
-  
-  .single-movie-container {
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+.single-movie-container {
     display: flex;
     flex-wrap: nowrap;
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto; /* Center the container within the wrapper */
-    border-radius: 8px;
+    margin: 0 auto;
     justify-content: center;
     align-items: center;
-    position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
-  }
-  .single-movie-wrapper::before {
+    z-index: 2;
+    position: relative; /* Ensures content is above the background */
+}
+
+.single-movie-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7); /* Adjust the opacity here */
-    z-index: 1; /* Ensure the overlay is behind the content */
-  }
-  
-  .single-movie-left {
-    flex: 1 1 30%; /* Set width to 30% */
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    z-index: 1; /* Overlay is behind content but above background */
+}
+
+.single-movie-left {
+    flex: 1 1 30%;
     max-width: 30%;
-    margin-right: 20px; /* Space between image and details */
-  }
-  
-  .single-movie-left img {
+    margin-right: 20px;
+}
+
+.single-movie-left img {
     width: 80%;
     max-height: 350px;
     height: auto;
     border-radius: 8px;
-  }
-  
-  .single-movie-right {
-    flex: 1 1 70%; /* Set width to 70% */
+}
+
+.single-movie-right {
+    flex: 1 1 70%;
     max-width: 50%;
-  }
-  
-  .single-movie-right h1 {
+    color: #fff; /* Ensures all text in this section is white */
+}
+
+.single-movie-right h1 {
     font-size: 2rem;
     margin-bottom: 10px;
-    color: #fff; /* Adjusted to contrast with the dark background */
-  }
-  
-  .single-movie-right p {
+}
+
+.single-movie-right p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #ddd; /* Adjusted to contrast with the dark background */
     margin-bottom: 10px;
-  }
+}
 
-  .single-movie-genres ul, .single-movie-languages ul {
+.single-movie-genres ul, .single-movie-languages ul {
     list-style-type: none;
     padding-left: 0;
-  }
-  
-  .single-movie-genres li, .single-movie-languages li {
-    background-color: #444; /* Darker background for better contrast */
+}
+
+.single-movie-genres li, .single-movie-languages li {
+    background-color: #444;
     display: inline-block;
     padding: 5px 10px;
     margin-right: 10px;
@@ -306,31 +327,73 @@ footer ul li{
     border-radius: 4px;
     font-size: 0.9rem;
     color: #fff;
-  }
+}
 
-/* ------------------------------------------------------------------------- Slick Slider Custom Styling ---------------------------------------------------------------------------- */
-.slick-slider {
-    position: relative;
-    padding: 0 60px; /* Add padding to make space for the buttons */
+/* ---------------------------------------------------- Search Results Css ----------------------------------------- */
+
+.search-results-container {
+    height: 100vh;
+    padding: 2rem;
+    background-color: #04152d; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Title */
+.search-results-container h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Individual movie item */
+.search-result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.search-result-img {
+    width: 90%;
     overflow: hidden;
+    border-radius: 10px;
+}
+.search-result-img:hover{
+
+    box-shadow: 0px 4px 10px rgba(119, 127, 214, 0.461);
 }
 
-.slick-list {
-    margin: 0;
-    overflow: hidden; /* Ensure content is properly visible */
+.search-result-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+.search-result-info {
+    text-align:left;
+    margin-top: 0.5rem;
 }
 
-.slick-slide {
-    padding: 0 10px;
+.search-result-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #dedddd;
 }
 
+.search-result-info p {
+    font-size: 0.9rem;
+    color: #b6b6b6;
+}
 .slick-prev,
 .slick-next {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-color: #282845;
     border-radius: 50%;
-    z-index: 9999 !important; /* Ensure they are on top of everything */
+    z-index: 9999;
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -344,16 +407,16 @@ footer ul li{
 
 .slick-prev::before,
 .slick-next::before {
-    font-size: 20px;
+    font-size: 18px;
     color: white;
 }
 
 .slick-prev {
-    left: 10px; /* Positioning the button inside the slider */
+    left: 10px;
 }
 
 .slick-next {
-    right: 10px; /* Positioning the button inside the slider */
+    right: 10px;
 }
 
 .slick-prev:hover,
@@ -362,136 +425,344 @@ footer ul li{
     opacity: 1;
 }
 
-.custom-next-arrow, .custom-prev-arrow {
-    z-index: 1;
-    display: block !important;
-    background: #000; /* Change this color to make it visible */
-    border-radius: 50%;
+
+/* ------------------------------------------------- Slick Slider Custom Styling ----------------------------------------------------- */
+.slick-slider {
+    position: relative;
+    padding: 0; /* Remove padding to reduce gaps */
+    overflow: hidden;
+}
+
+.slick-list {
+    margin: 0;
+    overflow: hidden;
+}
+
+.slick-slide {
+    padding: 0; /* Remove padding to reduce gaps */
+}
+
+.slick-prev,
+.slick-next {
     width: 30px;
     height: 30px;
-}
-
-.slick-next::before, .slick-prev::before {
-    font-size: 30px; /* Increase size if needed */
-    color: white; /* Change color to make it visible */
-}
-
-
-
-
-/* ------------------------------------------------------------------------- Movie Card Styling ---------------------------------------------------------------------------- */
-
-#movieWrapper {
+    background-color: #282845;
+    border-radius: 50%;
+    z-index: 9999;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    transition: opacity 0.3s, background-color 0.3s;
 }
 
-.movie {
-    width: 100%;
-    overflow: hidden;
-    /* transition: transform 0.3s, box-shadow 0.3s; */
+.slick-prev::before,
+.slick-next::before {
+    font-size: 18px;
+    color: white;
 }
 
-.movie-img {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 15px;
-    /* background-color: #ffffff; */
-}
-.movie-img:hover{
-    transition: transform 0.3s, box-shadow 0.3s; 
-    box-shadow: 0px 4px 10px rgba(51, 57, 108, 0.461); 
+.slick-prev {
+    left: 10px;
 }
 
-.movie-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.slick-next {
+    right: 10px;
 }
 
-.info {
-    text-align: center;
-    margin-top: 0.5rem;
+.slick-prev:hover,
+.slick-next:hover {
+    background-color: #4b4b8c;
+    opacity: 1;
 }
 
-.info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #333333;
-}
 
-.info p {
-    font-size: 1rem;
-    color: #777777;
-}
 
-/* ------------------------------------------------------------------------- Responsive Design ---------------------------------------------------------------------------- */
+
+
+/* ------------------------------------- Responsive Design for Search Component --------------------------------------- */
 
 /* Adjust layout for tablet screens */
-@media (max-width: 1024px) {
-    .movie {
-        width: calc(25% - 16px);
-    }
-
+@media (min-width: 768px) {
     .search-component {
-        width: 70%;
+        max-width: 80%;
     }
 
     .search-component h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .search-component p {
+        font-size: 1.2rem;
+    }
+
+    .search-component form input {
         font-size: 1.1rem;
     }
+
+    .search-component form button {
+        font-size: 1.3rem;
+    }
 }
 
-/* Adjust layout for mobile screens */
-@media (max-width: 768px) {
-    .movie {
-        width: calc(33.333% - 16px);
-    }
-
+/* Laptop and larger screens (1024px and above) */
+@media (min-width: 768px) {
     .search-component {
-        width: 90%;
+        max-width: 80%;
     }
 
     .search-component h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
 
     .search-component p {
-        font-size: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .search-component form input {
+        font-size: 1.1rem;
+    }
+
+    .search-component form button {
+        font-size: 1.3rem;
     }
 }
 
-@media (max-width: 480px) {
-    .movie {
-        width: calc(50% - 16px);
+/* Laptop and larger screens */
+@media (min-width: 1024px) {
+    .search-component {
+        max-width: 600px;
     }
 
-    .slick-prev,
-    .slick-next {
-        width: 25px;
-        height: 25px;
+    .search-component h1 {
+        font-size: 4rem;
+    }
+
+    .search-component p {
+        font-size: 1.4rem;
+    }
+
+    .search-component form input {
+        font-size: 1.2rem;
+    }
+
+    .search-component form button {
+        font-size: 1.4rem;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 767px) {
+  
+    .search-component {
+        max-width: 100%;
     }
 
     .search-component h1 {
         font-size: 2rem;
     }
+
+    .search-component p {
+        font-size: 0.9rem;
+    }
+
+    .search-component form input {
+        width: 60%;
+        padding: 0.80rem;
+        font-size: 0.9rem;
+    }
+    .search-component form button {
+        padding: 0.75rem;
+        font-size: .8rem;
+    }
+}
+
+/* ------------------------------------------------------------------------- Responsive Design for Header ---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 1rem;
+    }
+    
+    header ul {
+        gap: 0.5rem;
+    }
+
+    header ul li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem;
+    }
+    header h1{
+        font-size: 20px;
+    }
+    header ul {
+        gap: 0.5rem;
+    }
+
+    header ul li {
+        font-size: 0.8rem;
+    }
+}
+
+/* ----------------------------------------------Footer Media------------------------------- */
+@media (max-width: 768px) {
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+    footer p {
+        width: 100%; /* Avoid fixed width to prevent overflow */
+        font-size: 0.9rem;
+    }
+
+    footer ul {
+        gap: 0.5rem;
+        flex-wrap: wrap; /* Allow wrapping to prevent overflow */
+    }
+
+    footer ul li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 1rem;
+    }
+
+    footer p {
+        width: 100%; /* Avoid fixed width */
+        font-size: 0.6rem;
+        padding: 1rem;
+    }
+
+    footer ul {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    footer ul li {
+        font-size: 0.8rem;
+    }
 }
 
 
-@media screen and (max-width: 768px) {
+/* --------------------------------------- For Movies ------------------------------------------ */
+@media (max-width: 1024px) {
+    .slick-slide {
+        padding: 0 5px; /* Adjust padding for tablet screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .slick-slide {
+        padding: 0 5px; /* Adjust padding for mobile screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .slick-slide {
+        padding: 0 5px; /* Adjust padding for extra small mobile screens */
+    }
+}
+
+.movie {
+    overflow: hidden;
+}
+
+.movie-img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.movie-img img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area without distortion */
+}
+
+/* --------------------------------------- For Single Movies ------------------------------------------ */
+@media (max-width: 1024px) {
     .single-movie-container {
-      flex-direction: column; /* Stack elements on smaller screens */
+        flex-direction: column;
+        align-items: center;
     }
-  
-    .single-movie-left, .single-movie-right {
-      max-width: 100%; /* Full width */
-      flex: 1 1 100%;
-      margin-right: 0;
+
+    .single-movie-left {
+        max-width: 50%;
+        margin-right: 0;
+        margin-bottom: 20px;
     }
-  }
+
+    .single-movie-left img {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .single-movie-right {
+        max-width: 90%;
+        text-align: left;
+    }
+
+    .single-movie-right h1 {
+        font-size: 1.8rem;
+    }
+
+    .single-movie-right p {
+        font-size: 0.95rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .single-movie-left {
+        max-width: 70%;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .single-movie-right {
+        max-width: 100%;
+    }
+
+    .single-movie-right h1 {
+        font-size: 1.6rem;
+    }
+
+    .single-movie-right p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .single-movie-left {
+        max-width: 90%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .single-movie-left img {
+        width: 100%;
+        max-height: 250px;
+    }
+
+    .single-movie-right h1 {
+        font-size: 1.4rem;
+    }
+
+    .single-movie-right p {
+        font-size: 0.85rem;
+    }
+
+    .single-movie-genres li, .single-movie-languages li {
+        font-size: 0.8rem;
+    }
+}

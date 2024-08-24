@@ -5,6 +5,8 @@ import { searchMovies } from '../redux-toolkit/slice';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const img_base_url = "https://image.tmdb.org/t/p/original/";
 
@@ -67,6 +69,25 @@ function SearchResults() {
                             <div className="search-result-img">
                                 <img src={img_base_url + movie.poster_path} alt={movie.title || movie.original} />
                             </div>
+                            <div className='search-result-ratings'>
+                                <CircularProgressbar
+                                    value={movie.vote_average ? movie.vote_average * 10 : 5 * 10}
+                                    text={
+                                        movie.vote_average
+                                            ? movie.vote_average.toFixed(1)
+                                            : (5.5).toFixed(1)
+                                    }
+                                    strokeWidth={10}
+                                    styles={buildStyles({
+                                        pathColor: `${movie.vote_average > 6.9
+                                            ? "rgb(0, 128, 0)"
+                                            : "rgb(255, 165, 0)"
+                                            }`,
+                                        textColor: "rgb(0, 128, 0)",
+                                        textSize: "35px",
+                                    })}
+                                />
+                            </div>
                             <div className="search-result-info">
                                 <h3>{movie.title || movie.original || movie.name || movie.original_name}</h3>
                                 <p>
@@ -91,7 +112,7 @@ function SampleNextArrow(props) {
                 display: "block",
                 background: "gray",
                 borderRadius: "50%",
-                top:"40%",
+                top: "40%",
                 right: "10px",
                 zIndex: 9999,
             }}
@@ -110,7 +131,7 @@ function SamplePrevArrow(props) {
                 display: "block",
                 background: "gray",
                 borderRadius: "50%",
-                top:"40%",
+                top: "40%",
                 left: "10px",
                 zIndex: 9999,
             }}

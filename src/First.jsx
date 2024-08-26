@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './components/Home'
 import SearchResults from './components/SearchResults'
 import SingleMovie from './components/SingleMovie'
+import Tvshows from './components/Tvshows'
 
 function First() {
     return (
@@ -14,6 +15,7 @@ function First() {
                 <Route path="/" element={<Home />} ></Route>
                 <Route path="/search/:searchTerm" element={<SearchResults/>} ></Route>
                 <Route path="/singleItem/:id" element={<SingleMovie />}></Route>
+                <Route path="/tvshows" element={<Tvshows />}></Route>
             </Routes>
             <Footer />
         </BrowserRouter>

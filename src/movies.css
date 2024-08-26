@@ -35,15 +35,24 @@ header {
     top: 0;
     left: 0;
 }
+header h1{
+    font-size: 1.7rem;
+}
+
 
 header ul {
     display: flex;
-    gap: 1rem;
+    gap: .7rem;
 }
 
 header ul li {
     color: #fafafa;
     font-weight: 600;
+    font-size: 1rem;
+}
+
+header ul li:hover{
+    color:#d1d1d1;
 }
 
 /* ----------------------------------------------- Footer Styling --------------------------------------------------------- */
@@ -152,6 +161,104 @@ footer ul li{
 .search-component form button:active {
     transform: translateY(0);
 }
+/* --------------------------------------------------------- Tv shows -------------------------------------------------------------------- */
+.tv-container {
+    background-color: #04152d;
+}
+
+.tv-container {
+    background-color: #04152d;
+    padding-top: 60px; /* Adjust this value as needed to create space for the header */
+}
+.tv-container h1{
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.tvshow-container {
+    display: flex;
+    gap: 20px; /* Gap between cards */
+    flex-wrap: wrap;
+    justify-content: space-between; /* Align cards with space in-between */
+    width: 85%; /* Set the width of the container to 85% of the parent */
+    margin: 0 auto; /* Center align the container */
+    padding: 20px; /* Optional padding around the container */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.tvshow-card {
+    flex: 0 0 calc(20% - 20px); /* 20% width minus the gap */
+    box-sizing: border-box; /* Ensure padding and borders are included in the width */
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Media Query for Tablet Screens */
+@media (max-width: 992px) {
+    .tvshow-card {
+        flex: 0 0 calc(30% - 20px); /* Adjust for 3 cards in a row */
+    }
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+    .tvshow-container {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+    .tv-container h1{
+        font-size: 1rem;
+    }
+
+    .tvshow-card {
+        flex: 0 0 calc(45% - 10px); /* Adjust for 2 cards in a row with reduced gap */
+    }
+}
+
+.tvshow-rating {
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    bottom: 2.5rem;
+    width: 50px;
+    margin-bottom: -2.3rem;
+}
+
+.tvshow-poster {
+    width: 100%; /* Full width of the card */
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.tvshow-poster:hover {
+    box-shadow: 0px 4px 10px rgba(119, 127, 214, 0.461);
+}
+
+.tvshow-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tvshow-info {
+    text-align: left;
+    padding: 10px 0; /* Padding for spacing */
+}
+
+.tvshow-info h3 {
+    font-size: 1rem; /* Adjusted font size for better fit */
+    margin-bottom: 0.5rem;
+    color: #f2f2f2;
+}
+
+.tvshow-info p {
+    font-size: 0.9rem; /* Adjusted font size for better fit */
+    color: #c7c6c6;
+}
+
+
+  
 
 /* --------------------------------------------------------- All Movies ------------------------------------------------------------------ */
 .movieDisplay {
@@ -561,7 +668,7 @@ footer ul li{
     }
 
     .search-component p {
-        font-size: 1.4rem;
+        font-size: 1.1rem;
     }
 
     .search-component form input {
@@ -569,7 +676,7 @@ footer ul li{
     }
 
     .search-component form button {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
     }
 }
 

@@ -165,17 +165,18 @@ footer ul li{
 .tv-container {
     background-color: #04152d;
 }
-
 .tv-container {
     background-color: #04152d;
-    padding-top: 60px; /* Adjust this value as needed to create space for the header */
+    padding-top: 60px;
 }
-.tv-container h1{
+
+.tv-container h1 {
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     text-align: center;
 }
+
 .tvshow-container {
     display: flex;
     gap: 20px; /* Gap between cards */
@@ -189,10 +190,12 @@ footer ul li{
 }
 
 .tvshow-card {
-    flex: 0 0 calc(20% - 20px); /* 20% width minus the gap */
-    box-sizing: border-box; /* Ensure padding and borders are included in the width */
+    flex: 0 0 calc(20% - 20px);
+    box-sizing: border-box;
     overflow: hidden;
+    border-radius: 15px; /* Ensure border-radius is maintained */
     transition: transform 0.3s, box-shadow 0.3s;
+    background-color: transparent; /* Set a background color to avoid overflow effects */
 }
 
 /* Media Query for Tablet Screens */
@@ -207,13 +210,33 @@ footer ul li{
     .tvshow-container {
         padding: 10px; /* Reduce padding on smaller screens */
     }
-    .tv-container h1{
+    .tv-container h1 {
         font-size: 1rem;
     }
 
     .tvshow-card {
         flex: 0 0 calc(45% - 10px); /* Adjust for 2 cards in a row with reduced gap */
     }
+}
+
+.tvshow-poster {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tvshow-poster:hover {
+    box-shadow: 0px 4px 10px rgba(119, 127, 214, 0.461); /* Ensure shadow doesn't affect the radius */
+    /* transform: scale(1.03); */
+}
+
+.tvshow-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px; /* Maintain the border-radius during hover */
+    transition: transform 0.4s ease;
 }
 
 .tvshow-rating {
@@ -223,22 +246,6 @@ footer ul li{
     bottom: 2.5rem;
     width: 50px;
     margin-bottom: -2.3rem;
-}
-
-.tvshow-poster {
-    width: 100%; /* Full width of the card */
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-.tvshow-poster:hover {
-    box-shadow: 0px 4px 10px rgba(119, 127, 214, 0.461);
-}
-
-.tvshow-poster img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .tvshow-info {
@@ -256,6 +263,7 @@ footer ul li{
     font-size: 0.9rem; /* Adjusted font size for better fit */
     color: #c7c6c6;
 }
+
 
 
   
@@ -304,7 +312,6 @@ footer ul li{
 }
 /* ---------------------------------------- Movie Card Styling ---------------------------------------------------------- */
 
-
 #movieWrapper {
     display: flex;
     gap: 20px;
@@ -318,8 +325,10 @@ footer ul li{
     margin-right: auto;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 15px; /* Ensure border-radius is applied to the container */
 }
-.ratings{
+
+.ratings {
     background: #ffffff;
     border-radius: 50%;
     position: relative;
@@ -327,20 +336,25 @@ footer ul li{
     width: 50px;
     margin-bottom: -1.5rem;
 }
+
 .movie-img {
-    width: 90%;
+    width: 100%; 
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: inherit; /* Inherit the border-radius from the parent (.movie) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .movie-img:hover {
     box-shadow: 0px 4px 10px rgba(119, 127, 214, 0.461);
+    /* transform: scale(1.04); */
 }
 
 .movie-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: inherit; /* Inherit the border-radius to maintain consistency */
+    transition: transform 0.3s ease;
 }
 
 .info {
@@ -473,11 +487,13 @@ footer ul li{
     padding: 0.5rem;
     border-radius: 10px;
     transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
 }
 .search-result-img {
     width: 90%;
     overflow: hidden;
     border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .search-result-img:hover{
     box-shadow: 0px 4px 10px rgba(119, 127, 214, 0.461);

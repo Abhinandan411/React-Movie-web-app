@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { Link } from 'react-router-dom';
 
 
 const img_base_url = "https://image.tmdb.org/t/p/original/";
@@ -32,12 +33,15 @@ function Tvshows() {
       <div className="tvshow-container">
       {popularTvs.map((tv) => (
         <div key={tv.id} className="tvshow-card">
+          <Link to={`/singleItem/${tv.id}`}>
           <div className="tvshow-poster">
             <img
               src={img_base_url + tv.poster_path}
               alt={tv.title || tv.name || tv.original_name}
             />
           </div>
+          </Link>
+          
           <div className="tvshow-rating">
             <CircularProgressbar
               value={tv.vote_average ? tv.vote_average * 10 : 50}

@@ -48,22 +48,22 @@ function Home() {
         option2={trendingMoviesByWeek}/>
 
        {/* popular movies  */}
-       {/* <MoviesDisplay
+       <MoviesDisplay
         heading="What's Popular"
         choice1="Movies"
         choice2="TV's"
         option1={popularTvs}
         option2={popularMovies}
-        /> */}
+        />
 
        {/* top rated movies  */}
-       {/* <MoviesDisplay
+       <MoviesDisplay
         heading="Top Rated"
         choice1="Movies"
         choice2="TV's"
         option1={topRatedMovies}
         option2={topRatedTvs}
-        /> */}
+        />
 
     </>
         
